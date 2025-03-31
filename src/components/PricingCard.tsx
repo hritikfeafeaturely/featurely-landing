@@ -1,9 +1,7 @@
-import { PricingCard as PricingCardType } from "@/types/pricingcard";
-
-export const PricingCard = ({ plan }: { plan: PricingCardType }) => {
+export const PricingCard = () => {
   return (
     <div className="w-full md:w-1/3 h-[650px] flex">
-      <div
+      {/* <div
         className={`${plan.background} ${plan.rounding || ''} flex w-full flex-col text-base text-pastel-lilac font-light px-6 md:px-9 pt-8 md:pt-9 pb-10 h-full`}
       >
         <div className="flex items-center gap-2 text-xl text-soft-lavender font-medium whitespace-nowrap text-center tracking-[-0.4px]">
@@ -27,7 +25,7 @@ export const PricingCard = ({ plan }: { plan: PricingCardType }) => {
             ))}
           </ul>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

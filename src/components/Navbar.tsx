@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState } from "react";
 
-import { Container } from "@/components/ui/container";
 import { OutlineButton } from "./ui/outline-button";
 
 export const Navbar = () => {

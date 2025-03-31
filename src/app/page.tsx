@@ -1,8 +1,5 @@
 import { Navbar } from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import { Container } from "@/components/ui/container";
-import TestimonialCarousel from "@/components/Testimonials";
-import { Pricing } from "@/components/Pricing";
 import { Demo } from "@/components/Demo";
 import { Partners } from "@/components/sections/Partners";
 import { Features } from "@/components/sections/Features";

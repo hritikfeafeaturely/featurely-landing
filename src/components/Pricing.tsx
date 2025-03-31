@@ -1,6 +1,6 @@
-import { PricingCard } from "./PricingCard";
 import { Container } from "./ui/container";
-import { pricingPlans } from "@/lib/constants";
+// import { PricingCard } from "./PricingCard";
+// import { pricingPlans } from "@/lib/constants";
 
 export const Pricing = () => {
   return (
@@ -9,7 +9,7 @@ export const Pricing = () => {
         <h2 className="text-white text-3xl md:text-[40px] font-normal tracking-[-0.8px] mt-16 md:mt-[100px]">
           The right plan, right from the start
         </h2>
-        <div className="w-full mt-10 md:mt-[54px] mb-16">
+        {/* <div className="w-full mt-10 md:mt-[54px] mb-16">
           <div className="flex flex-col md:flex-row rounded-xl h-full min-h-[850px]">
             {pricingPlans.map((plan, index) => {
               const isFirst = index === 0;
@@ -28,7 +28,7 @@ export const Pricing = () => {
               return <PricingCard key={plan.id} plan={planWithRounding} />;
             })}
           </div>
-        </div>
+        </div> */}
       </Container>
     </section>
   );

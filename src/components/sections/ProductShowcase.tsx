@@ -48,8 +48,7 @@ export const ProductShowcase: React.FC = () => {
           </div>
 
           <p className="text-[#98949E] text-base md:text-lg font-normal text-center mt-12 md:mt-16 max-w-2xl">
-            Watch their journeys. Read their thoughts. Discover what's working
-            and what's not.
+           {" Watch their journeys. Read their thoughts. Discover what's working and what's not."}
           </p>
 
           <div className="w-full mt-12 md:mt-16 lg:mt-20 relative rounded-lg overflow-hidden shadow-xl">
