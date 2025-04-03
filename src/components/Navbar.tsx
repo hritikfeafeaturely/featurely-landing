@@ -32,9 +32,11 @@ export const Navbar = () => {
               Resources
             </Link>
 
-            <OutlineButton className="hidden md:block">
-              Get early access
-            </OutlineButton>
+            <Link href="/get-early-access">
+              <OutlineButton className="hidden md:block">
+                Get early access
+              </OutlineButton>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -67,25 +69,24 @@ export const Navbar = () => {
         <div className="absolute top-full left-0 right-0 md:hidden py-4 backdrop-blur-md bg-deep-space-blue/80 border-b border-slate-indigo/20 z-50">
           <div className="px-5">
             <div className="flex flex-col space-y-4">
-              <a
+              <Link
                 href="#how-it-works"
                 className="text-sm uppercase hover:text-white text-white transition-colors py-2"
               >
                 How Featurely Works
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/blogs"
                 className="text-sm uppercase hover:text-white text-white transition-colors py-2"
               >
                 Resources
-              </a>
+              </Link>
               <Link
                 href="/get-early-access"
                 className="text-sm uppercase hover:text-white text-white transition-colors py-2"
               >
                 Get early access
               </Link>
-              {/* <OutlineButton className="mt-4"></OutlineButton> */}
             </div>
           </div>
         </div>

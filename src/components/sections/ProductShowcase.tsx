@@ -1,7 +1,7 @@
 "use client";
 import { Container } from "../ui/container";
 import { FeatureItem } from "../ui/feature-item";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   motion,
   AnimatePresence,
@@ -9,26 +9,8 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "framer-motion";
-import Image from "next/image";
 
 export const ProductShowcase: React.FC = () => {
-  const features = [
-    {
-      iconSrc: "/web.svg",
-      iconAlt: "Web App Interface",
-      description: "Navigate your prototype or web app like real users",
-    },
-    {
-      iconSrc: "/confusionpoint.svg",
-      iconAlt: "Confusion Points",
-      description: "Reveal usability friction and confusion points",
-    },
-    {
-      iconSrc: "/syntheticusers.svg",
-      iconAlt: "User Insights",
-      description: "Output decision-ready insights - backed by user psychology",
-    },
-  ];
   const features2 = [
     {
       title:
@@ -91,7 +73,7 @@ export const ProductShowcase: React.FC = () => {
           description: "Chat with synthetic users mid-flow or post-task",
         },
         {
-          iconSrc: "/bulbNew.svg",
+          iconSrc: "/newBulb.svg",
           iconAlt: "User Goals",
           description: 'Ask "What were you trying to accomplish?"',
         },
@@ -147,17 +129,28 @@ export const ProductShowcase: React.FC = () => {
 
   // Calculate indicator position for the tab bar (0, 1, or 2)
   const tabIndicatorX = useTransform(featureIndexProgress, (val) => val);
-
-  // Smoother parallax effect for background
-  const { scrollYProgress: backgroundScrollYProgress } = useScroll({
-    target: featuresRef,
-    offset: ["start end", "end start"],
-  });
+  
+  // Create transform values for tab indicator position
+  const tabIndicatorLeft = useTransform(
+    tabIndicatorX,
+    (val) => `${(val * 100) / features2.length}%`
+  );
+  
+  // Create the tab opacity and scale transforms outside the map functions
+  const tabOpacity0 = useTransform(tabIndicatorX, [-0.5, 0, 0.5], [0.4, 0.7, 0.4]);
+  const tabOpacity1 = useTransform(tabIndicatorX, [0.5, 1, 1.5], [0.4, 0.7, 0.4]);
+  const tabOpacity2 = useTransform(tabIndicatorX, [1.5, 2, 2.5], [0.4, 0.7, 0.4]);
+  
+  const tabScale0 = useTransform(tabIndicatorX, [-0.2, 0, 0.2], [1, 1.05, 1]);
+  const tabScale1 = useTransform(tabIndicatorX, [0.8, 1, 1.2], [1, 1.05, 1]);
+  const tabScale2 = useTransform(tabIndicatorX, [1.8, 2, 2.2], [1, 1.05, 1]);
+  
+  // Group the transforms in arrays for easier access
+  const tabOpacities = [tabOpacity0, tabOpacity1, tabOpacity2];
+  const tabScales = [tabScale0, tabScale1, tabScale2];
 
   // Calculate exact progress for the tab bar indicator
   const featureProgressPercentage = (progress * features2.length) % 1;
-  const currentTabProgress = activeFeatureIndex / (features2.length - 1);
-  const tabBarProgress = progress; // Overall progress between 0-1
 
   return (
     <>
@@ -304,10 +297,7 @@ export const ProductShowcase: React.FC = () => {
                 className="absolute top-0 h-full bg-[#928EEB] z-10"
                 style={{
                   width: `${100 / features2.length}%`,
-                  left: useTransform(
-                    tabIndicatorX,
-                    (val) => `${(val * 100) / features2.length}%`
-                  ),
+                  left: tabIndicatorLeft,
                   opacity: 1,
                 }}
               />
@@ -318,16 +308,8 @@ export const ProductShowcase: React.FC = () => {
                   key={index}
                   className="h-full flex-1 relative"
                   style={{
-                    opacity: useTransform(
-                      tabIndicatorX,
-                      [index - 0.5, index, index + 0.5],
-                      [0.4, 0.7, 0.4]
-                    ),
-                    scale: useTransform(
-                      tabIndicatorX,
-                      [index - 0.2, index, index + 0.2],
-                      [1, 1.05, 1]
-                    ),
+                    opacity: tabOpacities[index],
+                    scale: tabScales[index],
                   }}
                 />
               ))}

@@ -11,6 +11,10 @@ module.exports = {
   ],
   theme: {
   	extend: {
+      fontFamily: {
+        sans: ['var(--font-sans)'],
+        mono: ['var(--font-mono)'],
+      },
   		colors: {
   			'midnight-purple': '#151023',
   			'dark-grape': '#312556',

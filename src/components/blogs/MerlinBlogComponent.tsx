@@ -10,7 +10,6 @@ interface BlogContentProps {
 
 export const MerlinBlogComponent = ({
   title,
-  date,
   heroImage,
   sections,
 }: BlogContentProps) => {

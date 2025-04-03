@@ -7,13 +7,6 @@ import Merlin from "@/components/Merlin";
 import DeathOfGuessworkComponent from "@/components/blogs/DeathOfGuessworkComponent";
 import HiddenCostComponent from "@/components/blogs/HiddenCostComponent";
 
-interface BlogDetailPageProps {
-  params: {
-    id: string;
-  };
-}
-
-
 type BlogPost = {
   title: string;
   author: string;
@@ -24,7 +17,6 @@ type BlogPost = {
   slug: string;
   date?: string;
 };
-
 
 type BlogContentData = {
   title: string;
@@ -128,35 +120,6 @@ const BlogWrapper = ({
         )}
 
         {children}
-
-        {/* {fullContent?.relatedSolutions && fullContent.relatedSolutions.length > 0 && (
-          <section className="bg-white w-full rounded-xl mt-16 pt-12 pb-10 px-6 md:px-12">
-            <h2 className="text-2xl md:text-3xl font-medium text-center mb-12">
-              Featured Solutions
-            </h2>
-        
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-              {fullContent.relatedSolutions.map((solution, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center text-center"
-                >
-                  <h3 className="text-xl md:text-2xl font-medium mb-6">
-                    {solution.title}
-                  </h3>
-                  <div className="h-48 flex items-center justify-center mb-6">
-                    <img
-                      src={solution.image}
-                      alt={solution.title}
-                      className="max-h-full w-auto"
-                    />
-                  </div>
-                  <p className="text-lg">{solution.description}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-        )} */}
       </div>
     </Container>
   </div>
@@ -169,7 +132,9 @@ const CUSTOM_BLOG_COMPONENTS: Record<string, React.FC> = {
   "hidden-cost-of-skipping-ux-research": HiddenCostComponent,
 };
 
-const BlogDetailPage = ({ params }: BlogDetailPageProps) => {
+// @ts-ignore - Next.js type error: params vs Promise incompatibility
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+const BlogDetailPage = async ({ params }: { params: { id: string } }) => {
   // Find the blog post by slug
   const post =
     blogData.blogPosts.find((post) => post.slug === params.id) ||

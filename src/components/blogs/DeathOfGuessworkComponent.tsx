@@ -34,7 +34,7 @@ export const DeathOfGuessworkComponent = () => {
           . Many startups and product teams rely on gut feelings or anecdotal
           evidence and end up with{" "}
           <span className="font-semibold">
-            features users don't need or can't use.
+            {"features users don't need or can't use."}
           </span>
           <br />
           <br />
@@ -53,7 +53,7 @@ export const DeathOfGuessworkComponent = () => {
             </li>
             <li>
               <span className="font-semibold">MVPs can be misleading</span> –
-              Early adopters don't represent the broader market.
+             {" Early adopters don't represent the broader market."}
             </li>
           </ul>
           <br />
@@ -83,13 +83,13 @@ export const DeathOfGuessworkComponent = () => {
         </h2>
         <div className="text-white text-lg font-normal leading-[26px] w-[925px] mt-9 max-md:max-w-full">
           <span className="font-semibold">
-            Step 1: Define What You're Building
+           {" Step 1: Define What You're Building"}
           </span>
           <br />
-          Start by describing, in a few words, what you want to accomplish
+          {`Start by describing, in a few words, what you want to accomplish
           (e.g., "Create a streamlined onboarding flow for new users").
           Featurely translates this into Jobs-to-Be-Done (JTBDs), which you can
-          refine to ensure alignment with your goals.
+          refine to ensure alignment with your goals.`}
           <br />
           <br />
           <span className="font-semibold">
@@ -245,9 +245,9 @@ export const DeathOfGuessworkComponent = () => {
           <br />✅ Achieve product-market fit more efficiently
           <br />
           <br />
-          If you're ready to build products with confidence, Featurely can help
+          {`If you're ready to build products with confidence, Featurely can help
           you make data-driven UX decisions before you write a single line of
-          code.
+          code.`}
         </div>
       </section>
     </article>

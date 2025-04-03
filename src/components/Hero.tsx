@@ -2,6 +2,9 @@ import React from "react";
 import { Container } from "./ui/container";
 import { OutlineButton } from "./ui/outline-button";
 
+import { CalendlyButton } from "./ui/calendly-button";
+import Link from "next/link";
+
 const Hero = () => {
   return (
     <Container>
@@ -17,9 +20,18 @@ const Hero = () => {
               Featurely helps you simulate real users, and turn feedback into
               better product flows — instantly.
             </p>
-            <OutlineButton className="px-8 relative z-20">
-              Get a demo
-            </OutlineButton>
+            <div className="flex gap-4">
+              <CalendlyButton
+                url="https://calendly.com/d/cm2c-5q4-npt/help-shape-featurely"
+                text="Book a Demo"
+                className="px-8 relative z-20"
+              />
+              <Link href="/get-early-access">
+                <OutlineButton className="px-8 relative z-20">
+                  Get Early Access
+                </OutlineButton>
+              </Link>
+            </div>
           </div>
         </div>
         <div className="absolute inset-0 overflow-hidden mt-28">

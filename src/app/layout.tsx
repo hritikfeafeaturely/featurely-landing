@@ -5,6 +5,10 @@ import { Footer } from "@/components/layouts/Footer";
 import { Demo } from "@/components/Demo";
 import Navbar from "@/components/Navbar";
 
+// Setting up Geist fonts
+const fontSans = GeistSans;
+
+
 // const geistMono = Geist_Mono({
 //   variable: "--font-geist-mono",
 //   subsets: ["latin"],
@@ -22,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className={fontSans.className}>
+      <body className="font-sans antialiased">
         <nav>
           <Navbar />
         </nav>

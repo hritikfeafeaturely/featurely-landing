@@ -1,18 +1,11 @@
 "use client";
+import Link from "next/link";
 
-import { useEffect, useState } from "react";
 import { Container } from "@/components/ui/container";
 import { OutlineButton } from "./ui/outline-button";
-import { PopupButton } from "react-calendly";
+import { CalendlyButton } from "./ui/calendly-button";
 
 export const Demo = () => {
-  const [domLoaded, setDomLoaded] = useState(false);
-
-  // Wait for DOM to load before rendering Calendly
-  useEffect(() => {
-    setDomLoaded(true);
-  }, []);
-
   return (
     <section className="pt-16 md:pt-24 lg:pt-32 bg-pure-black">
       <Container>
@@ -30,24 +23,16 @@ export const Demo = () => {
                     Simulate your next user, find out what they really need, and
                     make better product decisions — instantly.
                   </p>
-                  {domLoaded ? (
-                    <div className="self-start">
-                      <PopupButton
-                        url="https://calendly.com/hritik-featurely"
-                        /*
-                         * Replace with your Calendly URL
-                         * Example: https://calendly.com/yourname/15min
-                         */
-                        text="Book a 15 Min Walkthrough"
-                        rootElement={document.getElementsByTagName("body")[0]}
-                        className="rounded border border-[#5F5C70] text-white font-medium uppercase transition-colors hover:bg-white/10 px-6 py-2.5 text-sm"
-                      />
-                    </div>
-                  ) : (
-                    <OutlineButton className="self-start uppercase">
-                      Book a 15 Min Walkthrough
-                    </OutlineButton>
-                  )}
+                  <div className="flex gap-4">
+                    <CalendlyButton
+                      url="https://calendly.com/d/cm2c-5q4-npt/help-shape-featurely"
+                      text="Book a 15 Min Walkthrough"
+                      className="self-start uppercase"
+                    />
+                    <Link href="/get-early-access">
+                      <OutlineButton>Sign Up For Waitlist</OutlineButton>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
