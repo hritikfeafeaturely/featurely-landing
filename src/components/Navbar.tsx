@@ -10,11 +10,10 @@ export const Navbar = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 w-full z-50 backdrop-blur-md bg-pure-black/70 border-b border-soft-lavender/10">
-
       <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-12 py-4 md:py-5">
         <div className="flex items-center justify-between">
           <Link href="/" aria-label="Featurely Home">
-            <div className="text-xl md:text-2xl whitespace-nowrap uppercase">
+            <div className="text-xl md:text-2xl whitespace-nowrap text-white uppercase">
               Featurely
             </div>
           </Link>
@@ -27,7 +26,7 @@ export const Navbar = () => {
               How Featurely Works
             </Link>
             <Link
-              href="#resources"
+              href="/blogs"
               className="text-white text-sm uppercase hover:text-gray-300 transition-colors"
             >
               Resources
@@ -70,17 +69,23 @@ export const Navbar = () => {
             <div className="flex flex-col space-y-4">
               <a
                 href="#how-it-works"
-                className="text-sm uppercase hover:text-white transition-colors py-2"
+                className="text-sm uppercase hover:text-white text-white transition-colors py-2"
               >
                 How Featurely Works
               </a>
               <a
-                href="#resources"
-                className="text-sm uppercase hover:text-white transition-colors py-2"
+                href="/blogs"
+                className="text-sm uppercase hover:text-white text-white transition-colors py-2"
               >
                 Resources
               </a>
-              <OutlineButton className="mt-4">Get early access</OutlineButton>
+              <Link
+                href="/get-early-access"
+                className="text-sm uppercase hover:text-white text-white transition-colors py-2"
+              >
+                Get early access
+              </Link>
+              {/* <OutlineButton className="mt-4"></OutlineButton> */}
             </div>
           </div>
         </div>

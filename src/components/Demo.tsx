@@ -1,9 +1,20 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { Container } from "@/components/ui/container";
 import { OutlineButton } from "./ui/outline-button";
+import { PopupButton } from "react-calendly";
 
 export const Demo = () => {
+  const [domLoaded, setDomLoaded] = useState(false);
+
+  // Wait for DOM to load before rendering Calendly
+  useEffect(() => {
+    setDomLoaded(true);
+  }, []);
+
   return (
-    <section className="py-16 md:py-24 lg:py-32">
+    <section className="pt-16 md:pt-24 lg:pt-32 bg-pure-black">
       <Container>
         <div className="flex flex-col items-center">
           <div className="w-full">
@@ -19,9 +30,24 @@ export const Demo = () => {
                     Simulate your next user, find out what they really need, and
                     make better product decisions — instantly.
                   </p>
-                  <OutlineButton className="self-start">
-                    Get a demo
-                  </OutlineButton>
+                  {domLoaded ? (
+                    <div className="self-start">
+                      <PopupButton
+                        url="https://calendly.com/hritik-featurely"
+                        /*
+                         * Replace with your Calendly URL
+                         * Example: https://calendly.com/yourname/15min
+                         */
+                        text="Book a 15 Min Walkthrough"
+                        rootElement={document.getElementsByTagName("body")[0]}
+                        className="rounded border border-[#5F5C70] text-white font-medium uppercase transition-colors hover:bg-white/10 px-6 py-2.5 text-sm"
+                      />
+                    </div>
+                  ) : (
+                    <OutlineButton className="self-start uppercase">
+                      Book a 15 Min Walkthrough
+                    </OutlineButton>
+                  )}
                 </div>
               </div>
             </div>
