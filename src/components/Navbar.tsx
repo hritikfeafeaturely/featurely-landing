@@ -8,6 +8,14 @@ import { OutlineButton } from "./ui/outline-button";
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const scrollToSection = (id: string) => {
+    setIsMenuOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 w-full z-50 backdrop-blur-md bg-pure-black/70 border-b border-soft-lavender/10">
       <div className="max-w-7xl mx-auto px-5 md:px-10 lg:px-12 py-4 md:py-5">
@@ -19,12 +27,12 @@ export const Navbar = () => {
           </Link>
 
           <div className="hidden items-center md:flex gap-8 lg:gap-12">
-            <Link
-              href="#how-it-works"
-              className="text-white text-sm uppercase hover:text-gray-300 transition-colors"
+            <button
+              onClick={() => scrollToSection('how-it-works')}
+              className="text-white text-sm uppercase hover:text-gray-300 transition-colors cursor-pointer"
             >
               How Featurely Works
-            </Link>
+            </button>
             <Link
               href="/blogs"
               className="text-white text-sm uppercase hover:text-gray-300 transition-colors"
@@ -69,12 +77,12 @@ export const Navbar = () => {
         <div className="absolute top-full left-0 right-0 md:hidden py-4 backdrop-blur-md bg-deep-space-blue/80 border-b border-slate-indigo/20 z-50">
           <div className="px-5">
             <div className="flex flex-col space-y-4">
-              <Link
-                href="#how-it-works"
-                className="text-sm uppercase hover:text-white text-white transition-colors py-2"
+              <button
+                onClick={() => scrollToSection('how-it-works')}
+                className="text-sm uppercase hover:text-white text-white transition-colors py-2 text-left cursor-pointer"
               >
                 How Featurely Works
-              </Link>
+              </button>
               <Link
                 href="/blogs"
                 className="text-sm uppercase hover:text-white text-white transition-colors py-2"

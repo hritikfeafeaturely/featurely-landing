@@ -206,6 +206,7 @@ export const ProductShowcase: React.FC = () => {
 
       {/* Advanced Features Section with Scroll Animation */}
       <section
+        id="how-it-works"
         ref={featuresRef}
         className="relative min-h-screen py-20"
         style={{
