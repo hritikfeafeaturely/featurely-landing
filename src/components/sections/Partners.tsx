@@ -22,6 +22,18 @@ export function Partners() {
       width: 127,
       height: 44,
     },
+    {
+      src: "/opslyft.svg",
+      alt: "opslyft",
+      width: 127,
+      height: 44,
+    },
+    {
+      src: "/profitMasked.png",
+      alt: "profit",
+      width: 127,
+      height: 44,
+    },
   ];
 
   return (
